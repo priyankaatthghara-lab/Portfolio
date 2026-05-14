@@ -95,7 +95,9 @@ span{
    section{
     min-height: auto;
     padding: 8rem 10% 5rem;
-   
+    
+    scroll-margin-top: 100px;
+
      margin-bottom: 0;
       
    }
@@ -325,6 +327,10 @@ span{
    #Projects h2{
     font-size: 5rem;
     font-weight: 700;
+    background-image:url(fontphoto.png);
+    background-size: cover;
+    background-clip: text;
+    color: transparent;
    }
    .Academia{
     display: flex;
@@ -472,3 +478,54 @@ span{
     color: var(--text-color);
   }
  }
+ #contactme{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1.5rem;
+ }
+ #contactme #part{
+  display: flex;
+  width: 100%;
+ }
+ #contactme #coderimage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45%;
+ }
+ #techstacklogos{
+  display: flex;
+  width: 45%;
+  flex-wrap: wrap;
+ }
+#coderimage img{
+  width: 60%;
+  height: 100%;
+   border-radius: 50%;
+   object-fit: cover;
+   
+   transition: 0.3s ease-in-out;
+ }
+ #techstacklogos img{
+ width: 50%;
+ height: 50%;
+ }
+ #contactme div{
+  display: flex;
+  justify-content: space-between;
+  font-size: 2rem;
+ }
+ /* .typing{
+  animation: typing 5s steps(40, end) forwards, blink 0.7s step-end infinite;
+ }
+  @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    } */
+    
+ 
