@@ -45,3 +45,9 @@ function sendMail(event){
     emailjs.send("service_e500516","template_et4szvl",params).then(alert("Message sent successfully 🚀"));
     document.getElementById("contact-form").reset();
 }
+let menuIcon = document.querySelector("#menuicon");
+let navbar = document.querySelector(".navbar");
+
+menuIcon.onclick = () => {
+    navbar.classList.toggle("active");
+}

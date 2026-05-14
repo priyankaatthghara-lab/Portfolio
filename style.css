@@ -22,6 +22,7 @@ body{
     padding:0;
     padding-top: 8rem;
     
+    
 }
 h1,h2,h3,p{
     margin: 0;
@@ -258,7 +259,7 @@ span{
    .heading{
     display: flex;
     margin-bottom: 2rem;
-    font-size: 3rem;
+    font-size: 2rem;
   align-items: flex-start;
   
   }
@@ -455,10 +456,8 @@ span{
    margin: 40px 0 0 0;
     font-size: 1.6rem;
   }
- @media(max-width:1285px){
-  #menuicon{
-    display: block;
-  }
+ @media(max-width:768px){
+  
   .navbar{
     position: absolute;
     top: 100%;
@@ -469,6 +468,13 @@ span{
     border-bottom-left-radius: 2rem;
     border-left: 2px solid var(--main-color);
     border-bottom: 2px solid var(--main-color);
+    display: none;
+  }
+  #menuicon{
+    display: block;
+    color: white;
+  }
+  .gradient-btn{
     display: none;
   }
   .navbar a{
@@ -527,5 +533,43 @@ span{
     @keyframes blink {
       50% { border-color: transparent; }
     } */
+ @media(max-width:768px){
+  .Home{
+    display: flex;
+    flex-direction: column-reverse;
+    padding-top: 100px;
+  }
+  .imgcontent img{
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    justify-content: center;
     
+  }
+  .academia{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+   }
+   section{
+    transform: translateX(15px);
+   }
+   .achievements.heading{
+    text-align: center;
+   }
+   .navbar.active{
+        display: flex;
+        flex-direction: column;
+        
+        
+    }
+
+    .navbar a{
+        display: block;
+        font-size: 2rem;
+        margin: 2rem 0;
+       
+    }
+ }   
  
