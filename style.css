@@ -42,6 +42,7 @@ h1,h2,h3,p{
     z-index: 1000;
 
 }
+
 #menuicon{
     font-size: 3.5rem;
     color: var(--main-color);
@@ -65,7 +66,7 @@ span{
     color: transparent;
    }
    .navbar a{
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     color: var(--text-color);
     margin-left: 4rem;
     font-weight: bold;
@@ -533,7 +534,7 @@ span{
     @keyframes blink {
       50% { border-color: transparent; }
     } */
- @media(max-width:768px){
+ @media(max-width:800px){
   .Home{
     display: flex;
     flex-direction: column-reverse;
@@ -547,16 +548,18 @@ span{
     
   }
   .academia{
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      transform: scale(0.7);
       
    }
    section{
     transform: translateX(15px);
    }
-   .achievements.heading{
-    text-align: center;
+   .Achievements.heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     text-align: center;
+     font-size: 2rem;
    }
    .navbar.active{
         display: flex;
@@ -571,5 +574,6 @@ span{
         margin: 2rem 0;
        
     }
+    
  }   
  
