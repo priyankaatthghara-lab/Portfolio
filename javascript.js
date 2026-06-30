@@ -51,3 +51,51 @@ let navbar = document.querySelector(".navbar");
 menuIcon.onclick = () => {
     navbar.classList.toggle("active");
 }
+let projectsbox=document.querySelector(".projectsbox");
+const projects=[{ image: "Project1.png",
+    title: "Project 1",
+    description:
+      "AutoMob-Mechanics is a responsive web-based car service website built using HTML, CSS, and animations. It features a modern landing page with smooth UI effects, structured service sections, and an interactive design that simulates a real automobile workshop experience. The project focuses on building visually appealing and user-friendly web interfaces.", link: "https://priyankaatthghara-lab.github.io/Automob-mechanics/"},{ image: "campusconnect.png",
+    title: "Project 2",
+    description:
+      "College Fusion (Campus Connect) is a responsive web-based college extracurricular platform built using HTML, CSS, JavaScript, and React. It enables students to explore clubs, register for events, stay updated with campus activities, and provides role-based access for students, companies, and administrators.",
+    link: "https://priyankaatthghara-lab.github.io/Collegefusion/"},{
+    image: "project2.png",
+    title: "Project 3",
+    description:
+      "A responsive Tic Tac Toe game developed using HTML, CSS, and JavaScript, featuring interactive gameplay, win/draw detection, and a reset option.",
+    link: "https://priyankaatthghara-lab.github.io/TicTacToe/"
+  }, {
+    image: "todo.png",
+    title: "Project 4",
+    description:
+      "A responsive task management web app built with HTML, CSS, and JavaScript featuring an intuitive UI to organize tasks across To Do, In Progress, and Done sections.",
+    link: "https://priyankaatthghara-lab.github.io/Portfolio/"
+  },{
+    image: "portfolio.png",
+    title: "Project 5",
+    description:
+      "A responsive personal portfolio website built using HTML, CSS, and JavaScript to showcase projects, skills, and achievements.",
+    link: "https://priyankaatthghara-lab.github.io/Portfolio/"
+  },{
+    image: "weatherskycast.png",
+    title: "Project 6",
+    description:
+      "A feature-rich weather app delivering live weather updates, air quality insights, and local time with a clean, responsive user experience.",
+    link: "https://priyankaatthghara-lab.github.io/Skycast-web/"
+  }
+
+]
+projectsbox.innerHTML=projects.map((project)=>{
+    return`
+    <div class="project-card">
+        <img src="${project.image}" alt="${project.title}">
+        <h3>${project.title}</h3>
+        <p>${project.description}</p>
+        <a href="${project.link}" target="_blank">
+          Review Project
+        </a>
+      </div>
+      `
+})
+.join("");
