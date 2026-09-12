@@ -523,17 +523,7 @@ span{
   justify-content: space-between;
   font-size: 2rem;
  }
- /* .typing{
-  animation: typing 5s steps(40, end) forwards, blink 0.7s step-end infinite;
- }
-  @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-
-    @keyframes blink {
-      50% { border-color: transparent; }
-    } */
+ 
  @media(max-width:800px){
   .Home{
     display: flex;

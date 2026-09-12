@@ -31,7 +31,7 @@ discord.addEventListener("click",function(){
 let hirebtn=document.querySelector("#Hire");
 hirebtn.addEventListener("click",function(){
    
-    window.open("https://drive.google.com/file/d/1rRqBHB3siSBimZ_0I6RmOZ4XTzzK0LRP/view?usp=sharing","blank")
+    window.open("https://drive.google.com/file/d/10LUoTy1xq2xFCPXy8zsmUufBYJfwcqz5/view?usp=sharing","blank")
    })
 function sendMail(event){
     event.preventDefault();
@@ -83,8 +83,14 @@ const projects=[{ image: "Project1.png",
     description:
       "A feature-rich weather app delivering live weather updates, air quality insights, and local time with a clean, responsive user experience.",
     link: "https://priyankaatthghara-lab.github.io/Skycast-web/"
+  },
+  {
+    image: "internsetu.png",
+    title: "Project 7",
+    description:
+      "Built **InternSetu**, a university–industry platform for student performance evaluation, internship-readiness comparison, skill-gap analysis, and industry mentorship.",
+    link: "https://internsetu-academia-student-bridge.vercel.app/"
   }
-
 ]
 projectsbox.innerHTML=projects.map((project)=>{
     return`
