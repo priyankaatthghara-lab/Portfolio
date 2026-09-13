@@ -105,3 +105,151 @@ projectsbox.innerHTML=projects.map((project)=>{
       `
 })
 .join("");
+
+// --- Added Animations & Interactions ---
+
+// 1. Navbar Glass Effect on Scroll
+window.addEventListener("scroll", () => {
+    let header = document.querySelector(".header");
+    if (window.scrollY > 50) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
+    }
+});
+
+// 2. Cinematic Intro Scene & Parallax
+const introScene = document.getElementById("intro-scene");
+if (introScene && typeof gsap !== "undefined") {
+    const tl = gsap.timeline();
+    
+    // Disable body scroll while intro is active
+    document.body.style.overflow = "hidden";
+    gsap.registerPlugin(TextPlugin);
+    
+    // Fade in girl from a blur/scale effect
+    tl.fromTo(".intro-character-img", 
+        { scale: 1.2, opacity: 0, filter: "blur(10px)" }, 
+        { scale: 1.0, opacity: 1, filter: "blur(0px)", duration: 2, ease: "power3.out" }
+    )
+    .fromTo(".intro-overlay", 
+        { opacity: 0 }, 
+        { opacity: 1, duration: 1.5 }, 
+        "-=1.5"
+    )
+    // Ensure text lines are visible but empty before typing
+    .set(".intro-text", { opacity: 1 })
+    // Typing text reveal
+    .fromTo(".intro-text.line-1", { text: "" }, { text: "Hi, I'm Priyanka Kumari.", duration: 1.5, ease: "none" })
+    .fromTo(".intro-text.line-2", { text: "" }, { text: "I build thoughtful, interactive experiences for the web.", duration: 2, ease: "none" })
+    .fromTo(".intro-text.line-3", { text: "" }, { text: "Frontend Developer • Problem Solver • Software Engineering Enthusiast", duration: 2, ease: "none" })
+    .to(".intro-continue", { opacity: 1, duration: 1, ease: "power2.out" }, "+=0.5");
+
+    // Intro Mouse Parallax
+    document.addEventListener("mousemove", (e) => {
+        const x = (window.innerWidth / 2 - e.pageX) / 70;
+        const y = (window.innerHeight / 2 - e.pageY) / 70;
+        gsap.to(".intro-character-img", {
+            x: x,
+            y: y,
+            duration: 1,
+            ease: "power2.out"
+        });
+    });
+
+    // Enter Portfolio
+    const enterBtn = document.getElementById("enter-portfolio");
+    if (enterBtn) {
+        enterBtn.addEventListener("click", () => {
+            gsap.to(introScene, {
+                y: "-100%",
+                duration: 1.2,
+                ease: "power4.inOut",
+                onComplete: () => {
+                    introScene.style.display = "none";
+                    document.body.style.overflow = ""; // restore scroll
+                    if (typeof ScrollTrigger !== "undefined") {
+                        ScrollTrigger.refresh(); // Crucial for fixing project visibility
+                    }
+                }
+            });
+        });
+    }
+
+    // Return to Intro
+    const returnIntroBtn = document.getElementById("floating-intro-btn");
+    if (returnIntroBtn) {
+        returnIntroBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            introScene.style.display = "flex";
+            document.body.style.overflow = "hidden";
+            gsap.fromTo(introScene, 
+                { y: "-100%" }, 
+                { y: "0%", duration: 1.2, ease: "power4.inOut" }
+            );
+        });
+    }
+}
+
+
+// 3. Initialize VanillaTilt
+if (typeof VanillaTilt !== "undefined") {
+    VanillaTilt.init(document.querySelectorAll(".project-card"), {
+        max: 10,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.2
+    });
+    
+    VanillaTilt.init(document.querySelectorAll(".achievements"), {
+        max: 15,
+        speed: 400,
+        scale: 1.05
+    });
+}
+
+// 4. GSAP Scroll Animations
+if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero Section
+    gsap.from(".homecontent h1", { opacity: 0, y: 50, duration: 1, ease: "power3.out" });
+    gsap.from(".homecontent h3", { opacity: 0, y: 30, duration: 1, delay: 0.2, ease: "power3.out" });
+    gsap.from(".homecontent p", { opacity: 0, y: 20, duration: 1, delay: 0.4, ease: "power3.out" });
+    gsap.from(".btngroup", { opacity: 0, scale: 0.9, duration: 0.8, delay: 0.6, ease: "back.out(1.7)" });
+    gsap.from(".profile-wrapper", { opacity: 0, x: 50, duration: 1.2, delay: 0.3, ease: "power3.out" });
+
+    // About Section
+    gsap.from(".aboutcontent h2", {
+        scrollTrigger: { trigger: ".About", start: "top 80%" },
+        opacity: 0, x: -50, duration: 1
+    });
+    gsap.from(".aboutcontent p", {
+        scrollTrigger: { trigger: ".About", start: "top 75%" },
+        opacity: 0, y: 30, duration: 1
+    });
+
+    // Achievements
+    gsap.from(".newachievement .achievements", {
+        scrollTrigger: { trigger: ".Achievements", start: "top 80%" },
+        y: 50, stagger: 0.1, duration: 0.8, ease: "back.out(1.2)"
+    });
+
+    // Academia
+    gsap.from(".academia", {
+        scrollTrigger: { trigger: ".Academia", start: "top 80%" },
+        scale: 0.95, duration: 0.8
+    });
+
+    // Projects
+    gsap.from(".project-card", {
+        scrollTrigger: { trigger: ".Projects", start: "top 80%" },
+        y: 50, stagger: 0.15, duration: 0.8, ease: "power3.out"
+    });
+
+    // Contact
+    gsap.from(".Contact form", {
+        scrollTrigger: { trigger: ".Contact", start: "top 80%" },
+        opacity: 0, y: 30, duration: 1
+    });
+}
